@@ -1,0 +1,82 @@
+{
+  "source": "code-archive (Call-Agent-main, Next.js + Supabase)",
+  "capabilities": [
+    {
+      "capability": "code",
+      "source": "Next.js app router pages",
+      "outcome": "migrate",
+      "status": "done",
+      "next_action": "Rebuild pages as TanStack routes"
+    },
+    {
+      "capability": "schema",
+      "source": "supabase/migrations 001-003",
+      "outcome": "migrate",
+      "status": "done",
+      "next_action": "Recreate in Lovable Cloud with tenant-scoped access rules"
+    },
+    {
+      "capability": "records",
+      "source": "Supabase tables",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "User to provide CSV/JSON exports"
+    },
+    {
+      "capability": "auth identities",
+      "source": "Supabase auth (email/password)",
+      "outcome": "migrate",
+      "status": "pending",
+      "next_action": "User to provide auth users export (id, email)"
+    },
+    {
+      "capability": "authorization",
+      "source": "business_members roles owner/admin/member",
+      "outcome": "migrate",
+      "status": "done",
+      "next_action": "RLS via security definer membership function"
+    },
+    {
+      "capability": "AI provider",
+      "source": "OpenRouter (OPENROUTER_API_KEY)",
+      "outcome": "preserve",
+      "status": "done",
+      "next_action": "Use OpenRouter when key present; fallback to Lovable AI"
+    },
+    {
+      "capability": "Twilio voice webhook",
+      "source": "/api/twilio/voice",
+      "outcome": "preserve",
+      "status": "done",
+      "next_action": "Needs TWILIO_AUTH_TOKEN; set number webhook to /api/public/twilio/voice after publish"
+    },
+    {
+      "capability": "browser voice test",
+      "source": "Web Speech API",
+      "outcome": "migrate",
+      "status": "done",
+      "next_action": "Port"
+    },
+    {
+      "capability": "secrets",
+      "source": "OPENROUTER_API_KEY, OPENROUTER_MODEL, TWILIO_*",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "Request via secure form before live verification"
+    },
+    {
+      "capability": "cutover",
+      "source": "Twilio console webhook URL",
+      "outcome": "preserve",
+      "status": "pending",
+      "next_action": "Point number webhook to new URL after publish"
+    },
+    {
+      "capability": "verification",
+      "source": "-",
+      "outcome": "verify",
+      "status": "pending",
+      "next_action": "Signed-in flows await first real account (no users yet)"
+    }
+  ]
+}
